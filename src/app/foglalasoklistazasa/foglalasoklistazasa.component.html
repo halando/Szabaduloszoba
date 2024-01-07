@@ -1,0 +1,7 @@
+<div class="row">
+    <div class="col" *ngFor="let sor of sorok"> {{sor.text}}</div>
+</div>
+<div class="row">
+    <div class="row" *ngFor="let foglalas of foglalasok" >
+     <div class="col" *ngFor="let sor of sorok"> {{foglalas[sor.key]}}</div>
+</div>

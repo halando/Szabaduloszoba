@@ -1,0 +1,23 @@
+<div *ngFor="let sor of sorok">
+    <ng-container [ngSwitch]="sor.key">
+        <div *ngSwitchCase="'fo'">
+            <label for="{{sor.key}}">{{sor.text}}:</label> <br>
+            <input id="{{sor.key}}" [type]="sor.type" [(ngModel)]="actReservation[sor.key]" required min="2" max="16">
+        </div>
+        <div *ngSwitchCase="'datum'">
+            <label for="{{sor.key}}">{{sor.text}}:</label> <br>
+            <input id="{{sor.key}}" [type]="sor.type" [(ngModel)]="actReservation[sor.key]" [value]="actReservation[sor.key]" required>
+        </div>
+        <div *ngSwitchDefault>
+            <label for="{{sor.key.key}}">{{sor.text}}:</label> <br>
+            <input id="{{sor.key}}" [type]="sor.type" [(ngModel)]="actReservation[sor.key]" required min="4">
+        </div>
+    </ng-container>
+</div>
+<div class="error" *ngIf="!valid" >
+    <ul>
+        <li>Minden mező kötelező!</li>
+        <li>A "Fő" mező értéke 2 és 16 között kell legyen</li>
+    </ul>
+</div>
+<button class="btn btn-primary" (click)="check()">Foglalás</button>
